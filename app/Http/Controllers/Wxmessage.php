@@ -16,7 +16,7 @@ class Wxmessage extends Controller
           ]
         ];
         $context = stream_context_create($opts);
-        $html =file_get_contents('http://2pgq2b.natappfree.cc/Temp/WxMessage.php', false, $context);
+        $html =file_get_contents('http://124.220.153.66/Temp/WxMessage.php', false, $context);
         echo $html;
     }
 
