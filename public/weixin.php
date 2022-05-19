@@ -3,7 +3,7 @@ require_once 'Temp/WxMessage.php';
 define("TOKEN", "caoxinxin");//自己定义的token 就是个通信的私钥
 $wechatObj = new wechatCallbackapiTest();
 $wechatObj->valid();
-//$wechatObj->responseMsg();
+$wechatObj->responseMsg();
 class wechatCallbackapiTest
 {
     public function valid()
@@ -37,7 +37,7 @@ class wechatCallbackapiTest
             {
                 if (strstr($keyword, '养')){
 
-                    $imagePath = "http://yjz8gd.natappfree.cc/image/yangsheng1.jpg";
+                    $imagePath = "http://124.220.153.66/image/yangsheng1.jpg";
                     $path = "http://www.18ys.cn/";
                     $title = '养生常识';
                     $des = '日常生活的各种规范饮食和作息';
@@ -70,7 +70,7 @@ class wechatCallbackapiTest
 //                    $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
 //                    echo $resultStr;
                   //  $this->toDay();
-                    $url = "http://yjz8gd.natappfree.cc/Temp/WxMessage.php";
+                    $url = "http://124.220.153.66/Temp/WxMessage.php";
                     $ch = curl_init();
                     $timeout = 5;
                     curl_setopt($ch, CURLOPT_URL, $url);

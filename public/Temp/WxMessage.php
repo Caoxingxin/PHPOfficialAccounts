@@ -35,8 +35,8 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false) {
 
 class WxMessage
 {
-    public $appid = 'wx0918cc3e8dac5d76';
-    public $appSecret = '81e68a85884e639c763424d4089d78d7';
+    public $appid = 'wx97a715a466d5f47b';
+    public $appSecret = 'eaefdc4ed30fe43363d7d5a7a3f9842b';
 //    public function __construct($appid = null,$appSecret = null)
 //    {
 //        $this->appid = $appid;
@@ -73,7 +73,7 @@ class WxMessage
     public function GET_Code() {
         $get_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" . $this->appid;
 //        $url = "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
-        $url = "http://2pgq2b.natappfree.cc/Temp/WxMessage.php";
+        $url = "http://124.220.153.66/Temp/WxMessage.php";
         var_dump($url);
         header("location:" . $get_url . "&redirect_uri=" . $url . "&response_type=code&scope=snsapi_base&state=1#wechat_redirect");
     }
