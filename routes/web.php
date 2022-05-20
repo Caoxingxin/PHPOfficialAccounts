@@ -17,3 +17,9 @@ Route::get('/', function () {
 
 Route::match(['get', 'post'], '/message', 'Wxmessage@message');
 Route::any('/wechat', 'WeChatController@serve');
+Route::group(['middleware' => ['web', 'easywechat.oauth']], function () {
+    Route::get('/user', function () {
+        $user = session('easywechat.oauth_user.default'); // 拿到授权用户资料
+        dd($user);
+    });
+});

@@ -9,9 +9,10 @@ use Overtrue\Socialite\User as SocialiteUser;
 class WeChatController extends Controller
 {
     //
+    protected  $user = [];
     public function __construct()
     {
-        $user = new SocialiteUser([
+        $this->user = new SocialiteUser([
             'id' => 'mock-openid',
             'name' => 'overtrue',
             'nickname' => 'overtrue',
