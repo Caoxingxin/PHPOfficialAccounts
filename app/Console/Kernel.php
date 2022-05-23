@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Console\Commands\TempYxl;
 use App\Console\Commands\Test;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -14,7 +15,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Test::class
+        TempYxl::class
         //
     ];
 
@@ -29,6 +30,8 @@ class Kernel extends ConsoleKernel
         //$schedule->command('test')->everyMinute();
         // $schedule->command('inspire')
         //          ->hourly();
+        $schedule->command('command:TempYxl')->everyFiveMinutes()->withoutOverlapping;
+
     }
 
     /**

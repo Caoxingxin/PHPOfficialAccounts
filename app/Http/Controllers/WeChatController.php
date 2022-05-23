@@ -33,6 +33,12 @@ class WeChatController extends Controller
         Log::info('request arrived.');
         $app = app('wechat.official_account');
         $app->server->push(function($message)use ($app){
+            if(strstr($message['Content'], '模')){
+                //发送模板
+                $wechat = new WeChatTempServers($app);
+                $wechat->addTemp('UhEz1wikkkR_6g4HHrL5Ao7AeqjFWNRdFA9phg-mJDM','oHs895nn87fR9KKzbDH16bsC8vjE');
+                return ;
+            }
             switch($message['MsgType']){
                 case 'event':
                     //subscribe为订阅事件
@@ -42,13 +48,8 @@ class WeChatController extends Controller
                     break;
                 case 'text':
                     //发送图文
-                    //$TypeFactory = new MessageTypeFactory;
-                    //return $TypeFactory->changeType('news');
-                    //发送模板
-                    $wechat = new WeChatTempServers($app);
-                    $wechat->addTemp('UhEz1wikkkR_6g4HHrL5Ao7AeqjFWNRdFA9phg-mJDM','oHs895nn87fR9KKzbDH16bsC8vjE');
-
-                    //return '爱你亲亲！' .$message['ToUserName'];
+                    $TypeFactory = new MessageTypeFactory;
+                    return $TypeFactory->changeType('news');
                     break;
                 case  'image':
                     return '这是图片';

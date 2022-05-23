@@ -4,18 +4,35 @@
 namespace App\Factory;
 
 
+use App\Helps\Functions;
+
 class TempFactory
 {
+    private $week = ['星期天','星期一','星期二','星期三','星期四','星期五','星期六'];
     public function setTemp($name=''){
         if (isset($name)){
             //yxl单独发送
+            $weatherData = [
+                //高德地图控制台的key
+                'key' => 'd5c63b169d3ffbedfc579d27dde9107e',
+                'city' => '440106',
+                'extensions' => 'base',
+                'output' => 'JSON'
+            ];
+            $result = json_decode((new Functions())->curlGet('https://restapi.amap.com/v3/weather/weatherInfo',$weatherData),true);
+            if ($result['status'] == 1){
+                $weatherRes = reset($result['lives']);
+            }else{
+                return [];
+            }
             return [
-                'name' => ['猪猪','#787878'],
-                'day' => [date('Y-m-d H:i:s'),'#7A378B'],
-                'salaryDay' => ['22天','#C5C1AA'],
-                'site' => ['重庆'],
-                'temp_low' => ['17度','#C5C1AA'],
-                'temp_high' => ['28度','#C5C1AA'],
+                'name' => ['杨猪猪','#787878'],
+                'day' => [date('Y-m-d').$this->week[date('w',time())],'#7A378B'],
+                'salaryDay' => ['22','#C5C1AA'],
+                'site' => [$weatherRes['province'].$weatherRes['city'],'#C5C1AA'],
+                'weather' => [$weatherRes['weather'],'#C5C1AA'],
+                'temp_low' => ['暂无','#C5C1AA'],
+                'temp_high' => [$weatherRes['temperature'].'°','#C5C1AA'],
                 'message' => ['今天也是元气满满的一天，加油哦！ヾ(◍°∇°◍)ﾉﾞ']
             ];
         }
