@@ -30,7 +30,7 @@ class Kernel extends ConsoleKernel
         //$schedule->command('test')->everyMinute();
         // $schedule->command('inspire')
         //          ->hourly();
-        $schedule->command('command:TempYxl')->everyMinutes()->withoutOverlapping;
+        $schedule->command('command:TempYxl')->everyMinute()->withoutOverlapping;
 
     }
 
