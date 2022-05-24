@@ -36,7 +36,10 @@ class WeChatController extends Controller
             if(strstr($message['Content'], '模')){
                 //发送模板
                 $wechat = new WeChatTempServers($app);
+                //杨秀丽opid = 'oHs895kJuaXo3OoEGu9os-U3YNM0'
+                //我的openid = 'oHs895nn87fR9KKzbDH16bsC8vjE'
                 $wechat->addTemp('UhEz1wikkkR_6g4HHrL5Ao7AeqjFWNRdFA9phg-mJDM','oHs895nn87fR9KKzbDH16bsC8vjE');
+                $wechat->addTemp('UhEz1wikkkR_6g4HHrL5Ao7AeqjFWNRdFA9phg-mJDM','oHs895kJuaXo3OoEGu9os-U3YNM0');
                 return ;
             }
             switch($message['MsgType']){
