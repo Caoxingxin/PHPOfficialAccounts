@@ -25,8 +25,8 @@ class WeChatTempServers
         return $this->app->template_message->send([
             'touser'=>$openid,
             'template_id' => $tempId,
-            'url'=>'',
-            'miniprogram' =>'',
+            //'url'=>'',
+            //'miniprogram' =>'',
             'scene' => 1000,
             'data' => $data
         ]);
