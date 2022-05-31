@@ -25,15 +25,17 @@ class TempFactory
             }else{
                 return [];
             }
+            $msg = (new Functions())->DayliMsg();
             return [
-                'name' => ['杨猪猪','#787878'],
+                'name' => ['小可爱','#7A378B'],
                 'day' => [date('Y-m-d').$this->week[date('w',time())],'#7A378B'],
-                'salaryDay' => ['22','#C5C1AA'],
-                'site' => [$weatherRes['province'].$weatherRes['city'],'#C5C1AA'],
-                'weather' => [$weatherRes['weather'],'#C5C1AA'],
-                'temp_low' => ['暂无','#C5C1AA'],
-                'temp_high' => [$weatherRes['temperature'].'°','#C5C1AA'],
-                'message' => ['今天也是元气满满的一天，加油哦！ヾ(◍°∇°◍)ﾉﾞ']
+                'site' => [$weatherRes['province'].$weatherRes['city'],'#7A378B'],
+                'weather' => [$weatherRes['weather'],'#7A378B'],
+                'temp_low' => ['暂无','#7A378B'],
+                'temp_high' => [$weatherRes['temperature'].'°','#7A378B'],
+                'ENMsg' => ['','#7A378B'],
+                'CHMsg' => [$msg[1],'#7A378B'],
+                'message' => ['今天也是元气满满的一天，加油哦！ヾ(◍°∇°◍)ﾉﾞ','#7A378B']
             ];
         }
         return [];

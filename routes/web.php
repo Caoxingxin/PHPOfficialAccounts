@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 Route::match(['get', 'post'], '/message', 'Wxmessage@message');
 Route::any('/wechat', 'WeChatController@serve');
+Route::get('/wechat/menu', 'WeChatController@menu');
 Route::group(['middleware' => ['web', 'wechat.oauth:default,snsapi_userinfo']], function () {
     Route::get('/user', 'WeChatController@userData');
 });

@@ -42,7 +42,8 @@ class TempYxl extends Command
         //
         $app = app('wechat.official_account');
         $wechat = new WeChatTempServers($app);
-        $wechat->addTemp('UhEz1wikkkR_6g4HHrL5Ao7AeqjFWNRdFA9phg-mJDM','oHs895nn87fR9KKzbDH16bsC8vjE');
-        Log::info('发送成功！');
+        $wechat->addTemp('YIzkauwMW4Tspe7PVqJecG-7YccWSpbB4OoXiOY9UwE','oHs895nn87fR9KKzbDH16bsC8vjE');
+        $wechat->addTemp('YIzkauwMW4Tspe7PVqJecG-7YccWSpbB4OoXiOY9UwE','oHs895kJuaXo3OoEGu9os-U3YNM0');
+        //Log::info('发送成功！');
     }
 }
